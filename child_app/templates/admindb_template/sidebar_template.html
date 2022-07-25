@@ -1,0 +1,135 @@
+{% load static %}
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="{% static "dist/img/user.png" %}" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">{{ user.username }}</a>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item">
+            {% url 'add_child' as add_child %}
+            <a href="{{ add_child }}" class="nav-link {% if request.path == add_child %} active {% endif %}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Add Child
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            {% url 'add_office_bearers' as add_office_bearers %}
+            <a href="{{ add_office_bearers }}" class="nav-link {% if request.path == add_office_bearers %} active {% endif %}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Add Office Bearer
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            {% url 'add_room' as add_room %}
+            <a href="{{ add_room }}" class="nav-link {% if request.path == add_room %} active {% endif %}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Add Room
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            {% url 'add_medical_history' as add_medical_history %}
+            <a href="{{ add_medical_history }}" class="nav-link {% if request.path == add_medical_history %} active {% endif %}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Add Medical History
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            {% url 'add_donation_history' as add_donation_history %}
+            <a href="{{ add_donation_history }}" class="nav-link {% if request.path == add_donation_history %} active {% endif %}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Add Donation History
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            {% url 'add_employee' as add_employee %}
+            <a href="{{ add_employee }}" class="nav-link {% if request.path == add_employee %} active {% endif %}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Add Employee
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            {% url 'manage_child' as manage_child %}
+            <a href="{{ manage_child }}" class="nav-link {% if request.path == manage_child %} active {% endif %}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Manage Child
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            {% url 'manage_medical_history' as manage_medical_history %}
+            <a href="{{ manage_medical_history }}" class="nav-link {% if request.path == manage_medical_history %} active {% endif %}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Manage Medical History
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            {% url 'manage_office_bearers' as manage_office_bearers %}
+            <a href="{{ manage_office_bearers }}" class="nav-link {% if request.path == manage_office_bearers %} active {% endif %}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Manage Office Bearers
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            {% url 'manage_room' as manage_room %}
+            <a href="{{ manage_room }}" class="nav-link {% if request.path == manage_room %} active {% endif %}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Manage Room
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            {% url 'manage_donation_history' as manage_donation_history %}
+            <a href="{{ manage_donation_history }}" class="nav-link {% if request.path == manage_donation_history %} active {% endif %}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Manage Donation History
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            {% url 'manage_employee' as manage_employee %}
+            <a href="{{ manage_employee }}" class="nav-link {% if request.path == manage_employee %} active {% endif %}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Manage Employee
+              </p>
+            </a>
+          </li>
+          
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>

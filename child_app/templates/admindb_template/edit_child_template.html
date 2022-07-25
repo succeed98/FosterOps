@@ -1,0 +1,105 @@
+{% extends 'admindb_template/base_template.html' %}
+{% block page_title %}
+Edit Child
+{% endblock page_title %}
+{% block main_content %}
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Edit Child {{ child.Child_id }}</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form role="form" action="/edit_child_save" method="post">
+                  {% csrf_token %}
+                <div class="card-body">
+                  <div class="form-group">
+                    <label>Child ID</label>
+                    <input type="hidden" class="form-control" placeholder="Child ID" name="Child_id" value="{{ child.Child_id }}">
+                  </div>
+                  <div class="form-group">
+                    <label>First Name</label>
+                    <input type="text" class="form-control" placeholder="First Name" name="First_Name" value="{{ child.First_Name }}">
+                  </div>
+                  <div class="form-group">
+                    <label>Last Name</label>
+                    <input type="text" class="form-control" placeholder="Last Name" name="Last_Name" value="{{ child.Last_Name }}">
+                  </div>
+                  <div class="form-group">
+                    <label>Date of Birth</label>
+                    <input type="text" class="form-control" placeholder="Date of Birth" name="DOB" value="{{ child.DOB }}">
+                  </div>
+                  <div class="form-group">
+                    <label>Date of Admission</label>
+                    <input type="text" class="form-control" placeholder="Date od Admission" name="DOA" value="{{ child.DOA }}">
+                  </div>
+                  <div class="form-group">
+                    <label>Child Photo</label>
+                    <input type="text" class="form-control" placeholder="Child Photo" name="CPhoto" value="{{ child.CPhoto }}">
+                  </div>
+                  <div class="form-group">
+                    <label>ID NO.</label>
+                    <input type="text" class="form-control" placeholder="ID NO." name="CANo" value="{{ child.CANo }}">
+                  </div>
+                  
+                  <div class="form-group">
+                    <label>PAN No.</label>
+                    <input type="text" class="form-control" placeholder="PAN No." name="CPANo" value="{{ child.CPANo }}">
+                  </div>
+                  
+                  <div class="form-group">
+                    <label>Guardian Name</label>
+                    <input type="text" class="form-control" placeholder="Guardian Name" name="GName" value="{{ child.GName}}">
+                  </div>
+                
+                  <div class="form-group">
+                    <label>Guardian ID NO.</label>
+                    <input type="text" class="form-control" placeholder="Guardian ID NO." name="GANo" value="{{ child.GANo }}">
+                  </div>
+                  
+                  <div class="form-group">
+                    <label>Guardian PAN No.</label>
+                    <input type="text" class="form-control" placeholder="Guardian PAN No." name="GPANo" value="{{ child.GPANo }}">
+                  </div>
+                  <div class="form-group">
+                    <label>ROOM ID"</label>
+                    <input type="text" class="form-control" placeholder="ROOM ID" name="rid" value="{{ child.rid }}">
+                  </div>
+                  
+                      <div class="form-group">
+                      {% if messages %}
+                        {% for message in messages %}
+                        {% if message.tags == 'error' %}
+                        <div class="alert alert-danger" style="margin-top:10px">{{ message }}</div>
+                        {% endif %}
+                        {% if message.tags == 'success' %}
+                        <div class="alert alert-success" style="margin-top:10px">{{ message }}</div>
+                        {% endif %}
+                        {% endfor %}
+                      {% endif %}
+                    </div>
+
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary btn-block">Change Child Details</button>
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+
+
+
+          </div>
+          </div>
+      </div>
+    </section>
+    <!-- /.content -->
+{% endblock main_content %}
+

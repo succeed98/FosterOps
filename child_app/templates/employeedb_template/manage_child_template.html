@@ -1,0 +1,76 @@
+{% extends 'employeedb_template/base_template.html' %}
+{% block page_title %}
+Manage Child
+{% endblock page_title %}
+{% block main_content %}
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+
+
+           <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Children Details</h3>
+
+                <div class="card-tools">
+                  <div class="input-group input-group-sm" style="width: 150px;">
+                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                    <div class="input-group-append">
+                      <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                  <thead>
+                    <tr>
+                      <th>Child ID</th>
+                      <th>First Name</th>
+                      <th>Last Name</th>
+                      <th>Date of Birth</th>
+                      <th>Date of Admission</th>
+                      <th>Child Photo</th>
+                      <th>Child ID NO.</th>
+                      <th>Child PAN No.</th>
+                      <th>Guardian Name</th>
+                      <th>Guardian ID NO.</th>
+                      <th>Guardian PAN No.</th>
+                      <th>Room ID</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% for child in childrens %}
+                    <tr>
+                      <td>{{ child.Child_id }}</td>
+                      <td>{{ child.First_Name }}</td>
+                      <td>{{ child.Last_Name }}</td>
+                      <td>{{ child.DOB }}</td>
+                      <td>{{ child.DOA }}</td>
+                      <td>{{ child.CPhoto }}</td>
+                      <td>{{ child.CANo }}</td>
+                      <td>{{ child.CPANo }}</td>
+                      <td>{{ child.GName }}</td>
+                      <td>{{ child.GANo }}</td>
+                      <td>{{ child.GPANo }}</td>
+                      <td>{{ child.rid }}</td>
+                      
+                    </tr>
+                  {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /.content -->
+{% endblock main_content %}
+

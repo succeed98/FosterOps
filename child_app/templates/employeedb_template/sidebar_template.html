@@ -1,0 +1,61 @@
+{% load static %}
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="{% static "dist/img/user.png" %}" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">{{ user.username }}</a>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item">
+            {% url 'manage_room_emp' as manage_room_emp %}
+            <a href="{{ manage_room_emp }}" class="nav-link {% if request.path == manage_room_emp %} active {% endif %}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                EMP Manage Room
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            {% url 'manage_child_emp' as manage_child_emp %}
+            <a href="{{ manage_child_emp }}" class="nav-link {% if request.path == manage_child_emp %} active {% endif %}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Manage Child
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            {% url 'manage_donation_history_emp' as manage_donation_history_emp %}
+            <a href="{{ manage_donation_history_emp }}" class="nav-link {% if request.path == manage_donation_history_emp %} active {% endif %}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Manage Donation History
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            {% url 'manage_medical_history_emp' as manage_medical_history_emp%}
+            <a href="{{ manage_medical_history_emp }}" class="nav-link {% if request.path == manage_medical_history_emp %} active {% endif %}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Manage Medical History
+              </p>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>

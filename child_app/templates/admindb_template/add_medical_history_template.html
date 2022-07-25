@@ -1,0 +1,72 @@
+{% extends 'admindb_template/base_template.html' %}
+{% block page_title %}
+Add Medical_History
+{% endblock page_title %}
+{% block main_content %}
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Add Medical History</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form role="form" action="/add_medical_history_save" method="post">
+                  {% csrf_token %}
+                <div class="card-body">
+                   <div class="form-group">
+                    <label>Medical No</label>
+                    <input type="text" class="form-control" placeholder="Medical No" name="mno">
+                  </div>
+                   <div class="form-group">
+                    <label>Date of Checkup</label>
+                    <input type="text" class="form-control" placeholder="Date of Checkup" name="datech">
+                  </div>
+                  <div class="form-group">
+                    <label>Mtype</label>
+                    <input type="text" class="form-control" placeholder="Mtype" name="mtype">
+                  </div>
+                  <div class="form-group">
+                    <label>Rlink</label>
+                    <input type="text" class="form-control" placeholder="Rlink" name="rlink">
+                  </div>
+                  <div class="form-group">
+                    <label>Child ID</label>
+                    <input type="text" class="form-control" placeholder="ChildID" name="cid">
+                  </div>
+                      <div class="form-group">
+                      {% if messages %}
+                        {% for message in messages %}
+                        {% if message.tags == 'error' %}
+                        <div class="alert alert-danger" style="margin-top:10px">{{ message }}</div>
+                        {% endif %}
+                        {% if message.tags == 'success' %}
+                        <div class="alert alert-success" style="margin-top:10px">{{ message }}</div>
+                        {% endif %}
+                        {% endfor %}
+                      {% endif %}
+                    </div>
+
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary btn-block">Add Medical History</button>
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+
+
+
+          </div>
+          </div>
+      </div>
+    </section>
+    <!-- /.content -->
+{% endblock main_content %}
+

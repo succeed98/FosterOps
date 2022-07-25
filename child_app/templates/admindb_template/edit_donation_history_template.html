@@ -1,0 +1,72 @@
+{% extends 'admindb_template/base_template.html' %}
+{% block page_title %}
+Edit Donation History
+{% endblock page_title %}
+{% block main_content %}
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Edit Donation History {{ donation.Don_id }}</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form role="form" action="/edit_donation_history_save" method="post">
+                  {% csrf_token %}
+                <div class="card-body">
+                  <div class="form-group">
+                    <label>Donation ID</label>
+                    <input type="hidden" class="form-control" placeholder="Donation ID" name="Don_id" value="{{ donation.Don_id }}">
+                  </div>
+                  <div class="form-group">
+                    <label>Donor Name</label>
+                    <input type="text" class="form-control" placeholder="Donor Name" name="DName" value="{{ donation.DName }}">
+                  </div>
+                  <div class="form-group">
+                    <label>Donor PAN Number</label>
+                    <input type="text" class="form-control" placeholder="Donor PAN Number" name="DPanno" value="{{ donation.DPanno }}">
+                  </div>
+                  <div class="form-group">
+                    <label>Donor Date</label>
+                    <input type="text" class="form-control" placeholder="Donor Date" name="Ddate" value="{{ donation.Ddate }}">
+                  </div>
+                  <div class="form-group">
+                    <label>Amount</label>
+                    <input type="text" class="form-control" placeholder="Amount" name="Amt" value="{{ donation.Amt }}">
+                  </div>
+                      <div class="form-group">
+                      {% if messages %}
+                        {% for message in messages %}
+                        {% if message.tags == 'error' %}
+                        <div class="alert alert-danger" style="margin-top:10px">{{ message }}</div>
+                        {% endif %}
+                        {% if message.tags == 'success' %}
+                        <div class="alert alert-success" style="margin-top:10px">{{ message }}</div>
+                        {% endif %}
+                        {% endfor %}
+                      {% endif %}
+                    </div>
+
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary btn-block">Change Donation History Details</button>
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+
+
+
+          </div>
+          </div>
+      </div>
+    </section>
+    <!-- /.content -->
+{% endblock main_content %}
+
