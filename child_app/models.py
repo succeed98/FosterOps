@@ -75,7 +75,7 @@ class Medical_History(models.Model):
 class Office_Bearers(models.Model):
     chair_no = models.CharField(max_length=5, primary_key=True)
     position = models.CharField(max_length=20)
-    eid = models.ForeignKey(Employee, on_delete=models.CASCADE)
+    eid = models.CharField(max_length=5, unique=True)
     objects = models.Manager()
 
 

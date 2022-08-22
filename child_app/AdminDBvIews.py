@@ -52,11 +52,8 @@ def add_child_save(request):
             child_app.save()
 
             messages.success(request, "Successfully Added Child")
-            breakpoint()
             return HttpResponseRedirect(reverse("add_child"))
         except Exception as e:
-            breakpoint()
-            ms = e
             messages.error(request, "Failed to Add Child")
             return HttpResponseRedirect(reverse("add_child"))
 
@@ -115,11 +112,14 @@ def add_office_bearers_save(request):
         eid_id = request.POST.get("eid_id")
         curr = connection.cursor()
         try:
-            curr.execute("INSERT INTO child_app_office_bearers VALUES (%s, %s, %s)", [chair_no, position, eid_id])
+            office_bearers = Office_Bearers(chair_no=chair_no, position=position, eid=eid_id)
+            office_bearers.save()
             messages.success(request, "Successfully Added Office Bearer")
             return HttpResponseRedirect(reverse("add_office_bearers"))
-        except:
-            messages.error(request)
+        except Exception as e:
+            me = e
+            messages.error(request, "Failed to Add Child")
+            breakpoint()
             return HttpResponseRedirect(reverse("add_office_bearers"))
 
 
@@ -295,7 +295,7 @@ def edit_medical_history_save(request):
 
 def edit_office_bearers(request, chair_no):
     officeBearers = \
-    Office_Bearers.objects.raw('SELECT * FROM child_app_office_bearers WHERE chair_no = %s', [chair_no])[0]
+        Office_Bearers.objects.raw('SELECT * FROM child_app_office_bearers WHERE chair_no = %s', [chair_no])[0]
     return render(request, "admindb_template/edit_office_bearers_template.html", {"officeBearers": officeBearers})
 
 
