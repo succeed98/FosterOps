@@ -47,14 +47,16 @@ def add_child_save(request):
         curr = connection.cursor()
         try:
             child_app = Child(Child_id=Child_id, First_Name=First_Name, Last_Name=Last_Name, DOB=DOB, DOA=DOA,
-                              CPhoto=CPhoto, CANo=CANo, CPANNo=CPANNo, GName=GName, GANo=GANo, GPANNo=GPANNo,
+                              CPhoto=CPhoto, CANo=CANo, CPANNo=CPANNo, GName=GName, GANo=GANo, GPANo=GPANNo,
                               rid_id=rid_id)
             child_app.save()
 
             messages.success(request, "Successfully Added Child")
+            breakpoint()
             return HttpResponseRedirect(reverse("add_child"))
         except Exception as e:
             breakpoint()
+            ms = e
             messages.error(request, "Failed to Add Child")
             return HttpResponseRedirect(reverse("add_child"))
 

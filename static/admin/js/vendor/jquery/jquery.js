@@ -1722,7 +1722,7 @@ getText = Sizzle.getText = function( elem ) {
 
 	if ( !nodeType ) {
 
-		// If NOdeType, this is expected to be an array
+		// If no nodeType, this is expected to be an array
 		while ( ( node = elem[ i++ ] ) ) {
 
 			// Do not traverse comment nodes
